@@ -19,7 +19,7 @@ from folium.plugins import HeatMap
 
 # FUNGSI UNTUK MENENTUKAN PATH DATASET
 def tangkap_path_file(file_name):
-  return f"dasboard/data/{file_name}" if os.path.isfile(f"dasboard/data/{file_name}") else f"data/{file_name}"
+  return f"dashboard/data/{file_name}" if os.path.isfile(f"dashboard/data/{file_name}") else f"data/{file_name}"
 
 # Memuat dataset
 try:
