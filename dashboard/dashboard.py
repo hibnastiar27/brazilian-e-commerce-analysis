@@ -8,7 +8,7 @@ from streamlit_folium import st_folium
 from folium.plugins import HeatMap
 
 # CEK ROOT PATH CLOUD ATAU LOCAL
-if "STREAMLIT_SERVER" in os.environ:  # Cek variabel lingkungan untuk Streamlit Cloud
+if "STREAMLIT_SERVER" in os.environ or "STREAMLIT_RUNTIME" in os.environ:  # Cek variabel lingkungan untuk Streamlit Cloud
     root_folder = "dashboard/data"  # root path folder cloud streamlit
 else:
     root_folder = "data"  # root path folder local
