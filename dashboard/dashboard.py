@@ -19,14 +19,22 @@ from folium.plugins import HeatMap
 
 # FUNGSI UNTUK MENENTUKAN PATH DATASET
 def tangkap_path_file(file_name):
-  return f"/dasboard/data/{file_name}" if os.path.isfile(f"/dasboard/data/{file_name}") else f"data/{file_name}"
+  return f"dasboard/data/{file_name}" if os.path.isfile(f"dasboard/data/{file_name}") else f"data/{file_name}"
 
-# INISIALISASI DATA
-clean_df_geolocation = pd.read_csv("dashboard/data/clean_df_geolocation.csv")
-clean_df_sellers = pd.read_csv("dashboard/data/clean_df_sellers.csv")
-clean_gabung_rating_waktu_pengiriman = pd.read_csv("dashboard/data/clean_gabung_rating_waktu_pengiriman.csv")
-clean_gabung_metode_bayar_kota = pd.read_csv("dashboard/data/clean_gabung_metode_bayar_kota.csv")
-clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv("dashboard/data/clean_gabung_metode_bayar_nilai_transaksi.csv")
+# Memuat dataset
+try:
+  
+  # INISIALISASI DATA
+  clean_df_geolocation = pd.read_csv(tangkap_path_file('clean_df_geolocation.csv'))
+  clean_df_sellers = pd.read_csv(tangkap_path_file('clean_df_sellers.csv'))
+  clean_gabung_rating_waktu_pengiriman = pd.read_csv(tangkap_path_file('clean_gabung_rating_waktu_pengiriman.csv'))
+  clean_gabung_metode_bayar_kota = pd.read_csv(tangkap_path_file('clean_gabung_metode_bayar_kota.csv'))
+  clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv(tangkap_path_file('clean_gabung_metode_bayar_nilai_transaksi.csv'))
+except FileNotFoundError:
+  st.error("CSV file is missing. Please verify the path.")
+  st.stop()
+
+
 
 # ---
 # MEMBUAT FUNGSI UNTUK MENYIAPKAN DATASET KE VISUAL
