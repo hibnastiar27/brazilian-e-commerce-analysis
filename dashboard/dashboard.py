@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6,12 +7,18 @@ import folium
 from streamlit_folium import st_folium
 from folium.plugins import HeatMap
 
+# CEK ROOT PATH CLOUD ATAU LOCAL
+if "STREAMLIT_SERVER" in os.environ:  # Cek variabel lingkungan untuk Streamlit Cloud
+    root_folder = "dashboard/data"  # root path folder cloud streamlit
+else:
+    root_folder = "data"  # root path folder local
+
 # INISIALISASI DATA
-clean_df_geolocation = pd.read_csv('dashboard/data/clean_df_geolocation.csv')
-clean_df_sellers = pd.read_csv('dashboard/data/clean_df_sellers.csv')
-clean_gabung_rating_waktu_pengiriman = pd.read_csv('dashboard/data/clean_gabung_rating_waktu_pengiriman.csv')
-clean_gabung_metode_bayar_kota = pd.read_csv('dashboard/data/clean_gabung_metode_bayar_kota.csv')
-clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv('dashboard/data/clean_gabung_metode_bayar_nilai_transaksi.csv')
+clean_df_geolocation = pd.read_csv(f'{root_folder}/clean_df_geolocation.csv')
+clean_df_sellers = pd.read_csv(f'{root_folder}/clean_df_sellers.csv')
+clean_gabung_rating_waktu_pengiriman = pd.read_csv(f'{root_folder}/clean_gabung_rating_waktu_pengiriman.csv')
+clean_gabung_metode_bayar_kota = pd.read_csv(f'{root_folder}/clean_gabung_metode_bayar_kota.csv')
+clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv(f'{root_folder}/clean_gabung_metode_bayar_nilai_transaksi.csv')
 
 # ---
 # MEMBUAT FUNGSI UNTUK MENYIAPKAN DATASET KE VISUAL
@@ -102,6 +109,10 @@ def create_jumlah_seller_koordinat(df_seller,df_geo):
   
   return jumlah_seller_koordinat
 
+# ---
+# SETUP JUDUL TITLE PAGE DAN TITLE KONTEN
+# ---
+st.set_page_config(page_title="Dashboard E-Commerce By Aria :sparkles:")
 st.title('Dashboard E-Commerce By Aria :sparkles:')
 
 # ---
@@ -135,7 +146,6 @@ with st.sidebar:
     max_value=waktu_max,
     value=[waktu_min, waktu_max]
   )
-  
 # ---
 # Filtering Data supaya dinamis mengikuti input user 
 # ---
