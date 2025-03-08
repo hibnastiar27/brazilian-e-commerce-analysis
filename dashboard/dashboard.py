@@ -7,22 +7,40 @@ import folium
 from streamlit_folium import st_folium
 from folium.plugins import HeatMap
 
-# CEK ROOT PATH CLOUD ATAU LOCAL
-if "STREAMLIT_SERVER" in os.environ or "STREAMLIT_RUNTIME" in os.environ:  # Cek variabel lingkungan untuk Streamlit Cloud
-    root_folder = "dashboard/data"  # root path folder cloud streamlit
-else:
-    root_folder = "data"  # root path folder local
+# # CEK ROOT PATH CLOUD ATAU LOCAL
+# if "STREAMLIT_SERVER" in os.environ or "STREAMLIT_RUNTIME" in os.environ:  # Cek variabel lingkungan untuk Streamlit Cloud
+#     root_folder = "dashboard/data"  # root path folder cloud streamlit
+# else:
+#     root_folder = "data"  # root path folder local
     
-# DEBUGIG
-print(f"Os Env: {os.environ}")
-print(f"Root folder: {root_folder}")
+# # DEBUGIG
+# print(f"Os Env: {os.environ}")
+# print(f"Root folder: {root_folder}")
+
+# FUNGSI UNTUK MENENTUKAN PATH DATASET
+def tangkap_path_file(file_name):
+  return f"dasboard/data/{file_name}" if os.path.isfile(f"dasboard/data/{file_name}") else f"data/{file_name}"
+
+path_datas = [
+  "clean_df_geolocation.csv",
+  "clean_df_sellers.csv",
+  "clean_gabung_rating_waktu_pengiriman.csv",
+  "clean_gabung_metode_bayar_kota.csv",
+  "clean_gabung_metode_bayar_nilai_transaksi.csv"
+]
+
+path_final = {}
+
+for path_data in path_datas:
+  path_final[path_data] = tangkap_path_file(path_data)
+  
 
 # INISIALISASI DATA
-clean_df_geolocation = pd.read_csv(f'{root_folder}/clean_df_geolocation.csv')
-clean_df_sellers = pd.read_csv(f'{root_folder}/clean_df_sellers.csv')
-clean_gabung_rating_waktu_pengiriman = pd.read_csv(f'{root_folder}/clean_gabung_rating_waktu_pengiriman.csv')
-clean_gabung_metode_bayar_kota = pd.read_csv(f'{root_folder}/clean_gabung_metode_bayar_kota.csv')
-clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv(f'{root_folder}/clean_gabung_metode_bayar_nilai_transaksi.csv')
+clean_df_geolocation = pd.read_csv(path_final['clean_df_geolocation.csv'])
+clean_df_sellers = pd.read_csv(path_final['clean_df_sellers.csv'])
+clean_gabung_rating_waktu_pengiriman = pd.read_csv(path_final['clean_gabung_rating_waktu_pengiriman.csv'])
+clean_gabung_metode_bayar_kota = pd.read_csv(path_final['clean_gabung_metode_bayar_kota.csv'])
+clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv(path_final['clean_gabung_metode_bayar_nilai_transaksi.csv'])
 
 # ---
 # MEMBUAT FUNGSI UNTUK MENYIAPKAN DATASET KE VISUAL
