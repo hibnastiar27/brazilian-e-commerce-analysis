@@ -7,34 +7,20 @@ import folium
 from streamlit_folium import st_folium
 from folium.plugins import HeatMap
 
-# # CEK ROOT PATH CLOUD ATAU LOCAL
-# if "STREAMLIT_SERVER" in os.environ or "STREAMLIT_RUNTIME" in os.environ:  # Cek variabel lingkungan untuk Streamlit Cloud
-#     root_folder = "dashboard/data"  # root path folder cloud streamlit
-# else:
-#     root_folder = "data"  # root path folder local
-    
-# # DEBUGIG
-# print(f"Os Env: {os.environ}")
-# print(f"Root folder: {root_folder}")
-
 # FUNGSI UNTUK MENENTUKAN PATH DATASET
 def tangkap_path_file(file_name):
   return f"dashboard/data/{file_name}" if os.path.isfile(f"dashboard/data/{file_name}") else f"data/{file_name}"
 
-# Memuat dataset
+# INISIALISASI DATA
 try:
-  
-  # INISIALISASI DATA
   clean_df_geolocation = pd.read_csv(tangkap_path_file('clean_df_geolocation.csv'))
   clean_df_sellers = pd.read_csv(tangkap_path_file('clean_df_sellers.csv'))
   clean_gabung_rating_waktu_pengiriman = pd.read_csv(tangkap_path_file('clean_gabung_rating_waktu_pengiriman.csv'))
   clean_gabung_metode_bayar_kota = pd.read_csv(tangkap_path_file('clean_gabung_metode_bayar_kota.csv'))
   clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv(tangkap_path_file('clean_gabung_metode_bayar_nilai_transaksi.csv'))
 except FileNotFoundError:
-  st.error("CSV file is missing. Please verify the path.")
+  st.error("Path Data Anda Salah Silahkan Di Perbaiki")
   st.stop()
-
-
 
 # ---
 # MEMBUAT FUNGSI UNTUK MENYIAPKAN DATASET KE VISUAL
