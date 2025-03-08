@@ -14,6 +14,7 @@ else:
     root_folder = "data"  # root path folder local
     
 # DEBUGIG
+print(f"Os Env: {os.environ}")
 print(f"Root folder: {root_folder}")
 
 # INISIALISASI DATA
