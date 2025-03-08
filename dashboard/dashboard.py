@@ -29,12 +29,14 @@ path_datas = [
   "clean_gabung_metode_bayar_nilai_transaksi.csv"
 ]
 
-path_final = {}
 
-for path_data in path_datas:
-  path_final[path_data] = tangkap_path_file(path_data)
+# path_final = {}
+# for path_data in path_datas:
+#   path_final[path_data] = tangkap_path_file(path_data)
+
+# Membuat path_final menggunakan dictionary comprehension
+path_final = {path_data: tangkap_path_file(path_data) for path_data in path_datas}
   
-
 # INISIALISASI DATA
 clean_df_geolocation = pd.read_csv(path_final['clean_df_geolocation.csv'])
 clean_df_sellers = pd.read_csv(path_final['clean_df_sellers.csv'])
