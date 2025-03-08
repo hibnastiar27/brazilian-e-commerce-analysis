@@ -1,11 +1,11 @@
 # # Bike Share Analysis 🚲
 ## Submission Analisis Data Dicoding
-Streamlit Cloud: https://bike-share-analysis-project-mkhz5uxadszgw4efxjrrus.streamlit.app/ 
+Streamlit Cloud:  
 ## Installation
 
 Clone repository:
 ```sh
-https://github.com/ZulfahBintiToyibah/bike-share-analysis-project
+https://github.com/hibnastiar27/brazilian-e-commerce-analysis
 ```
 Install pustaka:
 
