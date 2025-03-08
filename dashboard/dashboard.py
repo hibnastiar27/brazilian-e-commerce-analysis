@@ -21,28 +21,12 @@ from folium.plugins import HeatMap
 def tangkap_path_file(file_name):
   return f"dasboard/data/{file_name}" if os.path.isfile(f"dasboard/data/{file_name}") else f"data/{file_name}"
 
-path_datas = [
-  "clean_df_geolocation.csv",
-  "clean_df_sellers.csv",
-  "clean_gabung_rating_waktu_pengiriman.csv",
-  "clean_gabung_metode_bayar_kota.csv",
-  "clean_gabung_metode_bayar_nilai_transaksi.csv"
-]
-
-
-# path_final = {}
-# for path_data in path_datas:
-#   path_final[path_data] = tangkap_path_file(path_data)
-
-# Membuat path_final menggunakan dictionary comprehension
-path_final = {path_data: tangkap_path_file(path_data) for path_data in path_datas}
-  
 # INISIALISASI DATA
-clean_df_geolocation = pd.read_csv(path_final['clean_df_geolocation.csv'])
-clean_df_sellers = pd.read_csv(path_final['clean_df_sellers.csv'])
-clean_gabung_rating_waktu_pengiriman = pd.read_csv(path_final['clean_gabung_rating_waktu_pengiriman.csv'])
-clean_gabung_metode_bayar_kota = pd.read_csv(path_final['clean_gabung_metode_bayar_kota.csv'])
-clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv(path_final['clean_gabung_metode_bayar_nilai_transaksi.csv'])
+clean_df_geolocation = pd.read_csv(tangkap_path_file('clean_df_geolocation.csv'))
+clean_df_sellers = pd.read_csv(tangkap_path_file('clean_df_sellers.csv'))
+clean_gabung_rating_waktu_pengiriman = pd.read_csv(tangkap_path_file('clean_gabung_rating_waktu_pengiriman.csv'))
+clean_gabung_metode_bayar_kota = pd.read_csv(tangkap_path_file('clean_gabung_metode_bayar_kota.csv'))
+clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv(tangkap_path_file('clean_gabung_metode_bayar_nilai_transaksi.csv'))
 
 # ---
 # MEMBUAT FUNGSI UNTUK MENYIAPKAN DATASET KE VISUAL
