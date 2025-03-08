@@ -7,11 +7,11 @@ from streamlit_folium import st_folium
 from folium.plugins import HeatMap
 
 # INISIALISASI DATA
-clean_df_geolocation = pd.read_csv('./dashboard/data/clean_df_geolocation.csv')
-clean_df_sellers = pd.read_csv('./data/clean_df_sellers.csv')
-clean_gabung_rating_waktu_pengiriman = pd.read_csv('./data/clean_gabung_rating_waktu_pengiriman.csv')
-clean_gabung_metode_bayar_kota = pd.read_csv('./data/clean_gabung_metode_bayar_kota.csv')
-clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv('./data/clean_gabung_metode_bayar_nilai_transaksi.csv')
+clean_df_geolocation = pd.read_csv('dashboard/data/clean_df_geolocation.csv')
+clean_df_sellers = pd.read_csv('dashboard/data/clean_df_sellers.csv')
+clean_gabung_rating_waktu_pengiriman = pd.read_csv('dashboard/data/clean_gabung_rating_waktu_pengiriman.csv')
+clean_gabung_metode_bayar_kota = pd.read_csv('dashboard/data/clean_gabung_metode_bayar_kota.csv')
+clean_gabung_metode_bayar_nilai_transaksi = pd.read_csv('dashboard/data/clean_gabung_metode_bayar_nilai_transaksi.csv')
 
 # ---
 # MEMBUAT FUNGSI UNTUK MENYIAPKAN DATASET KE VISUAL
