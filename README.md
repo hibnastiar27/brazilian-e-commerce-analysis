@@ -8,6 +8,15 @@ Clone repository:
 ```bash
 https://github.com/hibnastiar27/brazilian-e-commerce-analysis
 ```
+
+jika menggunakan .env
+```bash
+python -m venv .env
+
+source source .env/Scripts/activate
+```
+
+
 Install library:
 
 ```bash
