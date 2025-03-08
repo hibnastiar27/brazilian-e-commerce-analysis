@@ -1,19 +1,20 @@
 # # Analysis brazilian e-commerce 🔥
 ## Submission Analisis Data Dicoding
 **Streamlit Cloud:** https://brazilian-e-commerce-analysis-by-aria.streamlit.app
-## Installation
 
+
+## Setup Environment
 Clone repository:
-```sh
+```bash
 https://github.com/hibnastiar27/brazilian-e-commerce-analysis
 ```
 Install library:
 
-```sh
+```bash
 pip install -r requirements.txt
 ```
-## Run Dashboard
-```sh
+## Run Streamlit
+```bash
 cd dashboard
 streamlit run dashboard.py
 ```
