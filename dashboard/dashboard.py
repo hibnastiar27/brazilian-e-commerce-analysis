@@ -12,6 +12,9 @@ if "STREAMLIT_SERVER" in os.environ:  # Cek variabel lingkungan untuk Streamlit 
     root_folder = "dashboard/data"  # root path folder cloud streamlit
 else:
     root_folder = "data"  # root path folder local
+    
+# DEBUGIG
+print(f"Root folder: {root_folder}")
 
 # INISIALISASI DATA
 clean_df_geolocation = pd.read_csv(f'{root_folder}/clean_df_geolocation.csv')
